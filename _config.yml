@@ -1,24 +1,13 @@
-title: Researcher
-url: "https://ankitsultana.com"
-baseurl: "/researcher"
+title: "Zhuoran Wang"
+email: "youremail@example.com"
+description: "This is my personal website."
+baseurl: "" # 不要修改，除非你在子目录下托管站点
+url: "http://yourwebsite.com" # 修改为你的实际网址
+theme: minima
 
 markdown: kramdown
-#ins_logo: "./bits-logo.png"
-remote_theme: ankitsultana/researcher@gem
-tracking_id: #
+highlighter: rouge
 
-footer: yes
-footer_url: "https://github.com/ankitsultana"
-footer_text: "Page design by Ankit Sultana"
-
-sass:
-    style: compressed
-    sass_dir: _sass
-
-nav:
- - name: "About"
-   link: "/researcher/"
- - name: "Resume"
-   link: "resume.pdf"
- - name: "Contact"
-   link: "contact"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
