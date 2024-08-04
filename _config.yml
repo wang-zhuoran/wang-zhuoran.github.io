@@ -1,8 +1,8 @@
 title: "Zhuoran Wang"
-email: "youremail@example.com"
+email: "wang.zr0511@outlook.com"
 description: "This is my personal website."
 baseurl: "" # 不要修改，除非你在子目录下托管站点
-url: "http://yourwebsite.com" # 修改为你的实际网址
+url: "https://wang-zhuoran.github.io/" # 修改为你的实际网址
 theme: minima
 
 markdown: kramdown
@@ -11,3 +11,22 @@ highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+
+sass:
+    style: compressed
+    sass_dir: _sass
+
+nav:
+ - name: "About"
+   link: ""
+ - name: "Research"
+   link: "research"
+ - name: "Projects"
+   link: "projects"
+ - name: "Resume"
+   link: "resume"
+ - name: "Blog"
+   link: "blog"
+ - name: "Contact"
+   link: "contact"
