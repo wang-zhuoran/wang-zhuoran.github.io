@@ -19,7 +19,7 @@ sass:
 
 nav:
  - name: "About"
-   link: ""
+   link: "https://wang-zhuoran.github.io/"
  - name: "Research"
    link: "research"
  - name: "Projects"
