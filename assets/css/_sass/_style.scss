@@ -13,6 +13,8 @@ body {
     margin: 0;
     font-family: "Inconsolata";
     height: 100%;
+    font-size: 18px; /* 设置全局字体大小为16px */
+    font-weight: 500; /* 设置全局字体粗细为普通粗细 */
 }
 a {
     text-decoration: none;
