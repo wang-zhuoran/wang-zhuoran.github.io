@@ -4,7 +4,8 @@ layout: default
 
 ## About Me
 
-<img class="profile-picture" src="sherlock.jpg">
+
+<img class="profile-picture" src="personal photo.jpg">
 
 Hi! I am Zhuoran Wang, a master student in Shool of Electrical Engineering, Mathematics and Computer Science at Delft University of Technology, majoring in Computer Engineering (now Computer and Embedded Systems Engineering).
 

@@ -155,7 +155,7 @@ hr {
   padding: 2px 8px 2px 8px;
   font-style: italic; }
 .content .profile-picture {
-  height: 85px;
+  height: auto;
   width: 85px;
   position: relative;
   margin: -10px 0 0 15px;
@@ -272,7 +272,7 @@ table tr th :last-child, table tr td :last-child {
   padding: 2px 8px 2px 8px;
   font-style: italic; }
 .content .profile-picture {
-  height: 85px;
+  height: auto;
   width: 85px;
   position: relative;
   margin: -10px 0 0 15px;
