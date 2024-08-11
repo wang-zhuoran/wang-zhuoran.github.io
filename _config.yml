@@ -13,6 +13,12 @@ plugins:
   - jekyll-seo-tag
 
 
+footer: yes
+footer_url: "https://github.com/wang-zhuoran"
+footer_text: "Page design by Zhuoran Wang"
+
+
+
 sass:
     style: compressed
     sass_dir: _sass
@@ -25,8 +31,8 @@ nav:
  - name: "Projects"
    link: "projects"
  - name: "Resume"
-   link: "resume"
-#  - name: "Blog"
-#    link: "blog"
+   link: "resume.pdf"
  - name: "Contact"
    link: "contact"
+#  - name: "Blog"
+#    link: "blog"
