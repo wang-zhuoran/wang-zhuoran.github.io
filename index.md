@@ -30,11 +30,13 @@ I see myself as a [systems researcher](https://www.usenix.org/publications/login
 
 ## Experience
 
-- [2024.09 - 2024.11] Research Intern, Delft University of Technology, The Netherlands
-  - Web Information Systems Group, working on topics related to LLMs (Expected)
+- [2024.11 - Present] Master Thesis Student, Delft University of Technology, The Netherlands
+  - Programming Language Group, Department of Software Technology
+  - Computer Engineering Group, Department of Quantum & Computer Engineering
 
-- [2024.07 -     Now] Research Intern, Sun Yat-sen University, China
-  - Working on LLMs and GraphRAG 
+- [2024.10 - 2025.03] Research Intern, Delft University of Technology, The Netherlands
+  - Distributed System group, Department of Software Technology
+  - Working on Decentralized Machine Learning Systems
   
 - [2022.03 - 2022.06] Software Engineer Intern, Shandong University Tianyuan Digital Industry Research Institute, China
   - Building website using SpringBoot, Vue and MySQL
