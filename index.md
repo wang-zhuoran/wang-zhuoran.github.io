@@ -31,8 +31,8 @@ I see myself as a [systems researcher](https://www.usenix.org/publications/login
 ## Experience
 
 - [2024.11 - Present] Master Thesis Student, Delft University of Technology, The Netherlands
-  - Programming Language Group, Department of Software Technology
-  - Computer Engineering Group, Department of Quantum & Computer Engineering
+  - Embedded Systems group, Department of Software Technology
+  - Working on the topic of Efficient Large Language Model Inference
 
 - [2024.10 - 2025.03] Research Intern, Delft University of Technology, The Netherlands
   - Distributed System group, Department of Software Technology
