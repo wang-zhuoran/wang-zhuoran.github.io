@@ -30,7 +30,7 @@ I see myself as a [systems researcher](https://www.usenix.org/publications/login
 
 ## Experience
 
-- [2024.11 - Present] Master Thesis Student, Delft University of Technology, The Netherlands
+- [2025.02 - Present] Master Thesis Student, Delft University of Technology, The Netherlands
   - Embedded Systems group, Department of Software Technology
   - Working on the topic of Efficient Large Language Model Inference
 
