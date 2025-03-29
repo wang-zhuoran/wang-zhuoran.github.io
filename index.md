@@ -57,3 +57,7 @@ I see myself as a [systems researcher](https://www.usenix.org/publications/login
 
 1. (to be added)
 
+
+## Academic Service
+- Student Volunteer, ASPLOS / EuroSys 2025, Rotterdam, The Netherlands
+
