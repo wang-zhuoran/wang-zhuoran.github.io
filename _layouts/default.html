@@ -73,6 +73,12 @@
                     {% endif %}
                         </li>
                 {% endfor %}
+                <li class="alignable pull-left nav-list theme-toggle-container">
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider"></span>
+                    </label>
+                </li>
             </ul>
         </div>
         <div style="clear:both"></div>
@@ -101,6 +107,7 @@
           ga('send', 'pageview');
         </script>
     {% endif %}
+    <script src="/assets/js/theme-toggle.js"></script>
 </body>
 <footer>
 </footer>
