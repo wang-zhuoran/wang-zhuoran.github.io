@@ -62,8 +62,8 @@ Central to my approach is a firm belief in the power of hardware-software-algori
 
 ## Publications
 
-- *Towards Dynamic KV-Cache Compression: Fine-Grained Evaluation of Key and Value Ranks in LLMs.* 
-Jian Chen*, **Zhuoran Wang***, Jiayu Qin, Ming Li, Meng Wang, Changyou Chen, Yin Chen, Qizhen Weng, Yirui Liu.  
+1. *Towards Dynamic KV-Cache Compression: Fine-Grained Evaluation of Key and Value Ranks in LLMs.* 
+Jian Chen\*, **Zhuoran Wang**\*, Jiayu Qin, Ming Li, Meng Wang, Changyou Chen, Yin Chen, Qizhen Weng, Yirui Liu.  
 **Conference on Neural Information Processing Systems (NeurIPS)** workshop, 2025. (* equal contribution)
 
 
