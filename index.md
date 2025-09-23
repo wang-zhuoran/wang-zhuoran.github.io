@@ -14,12 +14,19 @@ Hi! I am Zhuoran Wang, a master student in Shool of Electrical Engineering, Math
 
 ## Research Interests
 
-I see myself as a [systems researcher](https://www.usenix.org/publications/login-logout/november-2013-login-logout/night-watch) with a focus on the intersection of system design and machine learning (ML). My primary interest lies in optimizing ML systems and the underlying infrastructure that supports them. I am passionate about building, debugging, and improving complex systems, with a particular emphasis on enhancing the efficiency of large language model (LLM) inference and distributed training. Central to my approach is a firm belief in the power of hardware-software-algorithm co-design. I am convinced that only by tightly integrating algorithm, software and hardware development can we achieve the level of efficiency and scalability necessary to democratize the use of LLMs, making them more accessible and effective for a wide range of applications.
+<!-- I see myself as a [systems researcher](https://www.usenix.org/publications/login-logout/november-2013-login-logout/night-watch) with a focus on the intersection of system design and machine learning (ML).  -->
+
+My primary interest lies in AI and ML systems. Grounded in systems research, my work often extends to the algorithmic and application layers, aiming to 
+connect low-level optimization with higher-level design. 
+I am passionate about building, debugging, and improving complex systems, with a particular emphasis on enhancing the efficiency of large language model (LLM) inference and distributed training. 
+Central to my approach is a firm belief in the power of hardware-software-algorithm co-design. I am convinced that only by tightly integrating algorithm, software and hardware development can we achieve the level of efficiency and scalability necessary to democratize the use of LLMs, making them more accessible and effective for a wide range of applications.
+
+
 
 <span style="color: red;">**I am actively seeking PhD/Mphil/RA position starting in 2025/2026 Fall.**</span>
 
 ## Education
-- [2023.09 - 2025.07] MSc in Computer Engineering, Delft University of Technology, The Netherlands
+- [2023.09 - 2025.11] MSc in Computer Engineering, Delft University of Technology, The Netherlands
 
 - [2019.09 - 2023.07] BSc in Robotics and Intelligent Devices, National University of Ireland, Maynooth, Ireland
   - First-class Honors with a GPA of 3.8/4.0
@@ -55,7 +62,9 @@ I see myself as a [systems researcher](https://www.usenix.org/publications/login
 
 ## Publications
 
-1. (to be added)
+- *Towards Dynamic KV-Cache Compression: Fine-Grained Evaluation of Key and Value Ranks in LLMs.* 
+Jian Chen*, **Zhuoran Wang***, Jiayu Qin, Ming Li, Meng Wang, Changyou Chen, Yin Chen, Qizhen Weng, Yirui Liu.  
+**Conference on Neural Information Processing Systems (NeurIPS)** workshop, 2025. (* equal contribution)
 
 
 ## Academic Service
