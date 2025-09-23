@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Zhuoran Wang</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="blog, accent, , Zhuoran Wang, jekyll">
+    <meta name="author" content="">
+    
+    
+    
+    <meta name="description" content="This is my personal website.">
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="Zhuoran Wang RSS" href="/feed.xml" />
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    
+    
+    <!-- Facebook Open Graph -->
+    <meta name="og:description" content="This is my personal website.">
+    <meta name="og:title" content="Zhuoran Wang">
+    <meta name="og:url" content="http://localhost:4000/projects.html">
+    <meta name="og:type" content="article">
+    
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Zhuoran Wang">
+    <meta name="twitter:description" content="This is my personal website.">
+    <meta name="twitter:url" content="http://localhost:4000/projects.html">
+    
+        <meta name="twitter:image" content="">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar container">
+            
+            <a id="author-name" class="alignable pull-left" href="http://localhost:4000">Zhuoran Wang</a>
+            <ul id="navlist" class="alignable pull-right navbar-ul">
+                
+                    
+                        <li class="alignable pull-left nav-list"><a href="https://wang-zhuoran.github.io/">About</a>
+                    
+                    
+                        /
+                    
+                        </li>
+                
+                    
+                        <li class="alignable pull-left nav-list"><a href="research">Research</a>
+                    
+                    
+                        /
+                    
+                        </li>
+                
+                    
+                        <li class="alignable pull-left nav-list"><a href="projects">Projects</a>
+                    
+                    
+                        /
+                    
+                        </li>
+                
+                    
+                        <li class="alignable pull-left nav-list"><a target="_blank" href="resume.pdf">Resume</a>
+                    
+                    
+                        /
+                    
+                        </li>
+                
+                    
+                        <li class="alignable pull-left nav-list"><a href="contact">Contact</a>
+                    
+                    
+                        </li>
+                
+                <li class="alignable pull-left nav-list theme-toggle-container">
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+        <hr>
+        
+            <div class="container content">
+        
+                <h4 id="1-distributed-algorithms-labs">1. Distributed Algorithms Labs</h4>
+
+<ul>
+  <li>Implemented Dolev’s Reliable Communication algorithm and its five modifications described in the paper: Bonomi, G. Farina, and S. Tixeuil, “Multi-hop byzantine reliable broadcast with honest dealer made practical,” Journal of the Brazilian Computer Society, vol. 25, pp. 1–23, 2019</li>
+  <li>Implemented Bracha’s reliable broadcast algorithm on the top of the fully-connected network topology that Dolev algorithm provided.</li>
+  <li>Implemented a casual-order Byzantine broadcast algorithm using vector clock technique. causal-order Byzantine broadcast</li>
+</ul>
+
+<h4 id="2-extension-and-modification-of-xv6-operating-system">2. Extension and Modification of XV6 operating system</h4>
+<ul>
+  <li>Implemented Unix utilities in xv6, including sleep, find, xargs, gaining proficiency in system calls.</li>
+  <li>Added trace and Sysinfo system call</li>
+  <li>Optimized system calls and detected accessed pages.</li>
+  <li>Implemented Copy-on-Write Fork in xv6.</li>
+  <li>Developed an xv6 device driver for a network interface card (NIC).</li>
+  <li>Redesigned code to increase parallelism, addressing high lock contention in xv6 memory allocator.</li>
+  <li>Enhanced xv6 file system by adding support for large files and symbolic links.</li>
+  <li>Implemented mmap and munmap system calls in xv6.</li>
+</ul>
+
+<h4 id="3-advanced-computing-systems-labs">3. Advanced Computing Systems Labs</h4>
+<ul>
+  <li>Conducted profiling with gprof to identify bottlenecks; optimized matrix multiplication using SIMD (AVX) and multi-core parallelism (OpenMP), employing techniques including fine-tuning OMP directives and reordering multiplication to leverage cache locality.</li>
+  <li>Analyzed CPU and CUDA implementations, identified bottlenecks through Nsight system profiling, and optimized by improving data transfer efficiency, leveraging shared memory, and fine-tuning grid and block dimensions.</li>
+  <li>Accelerated the K Means algorithm using CUDA, implementing optimization strategies identified through profiling, including fine-tuning grid and block dimensions, and leveraging shared memory to reduce the data transfer overhead.</li>
+</ul>
+
+<h4 id="4-multi-threaded-regular-expression-search-in-rust-grep">4. Multi-threaded	Regular	Expression	Search	in	Rust (grep)</h4>
+<ul>
+  <li>Approach 1 - Rayon Implementation: Developed a multi-threaded	regular	expression search tool in Rust.	Used clap for command-line
+ argument parsing, regex for pattern matching, and rayon for parallel processing. Ensured data consistency and thread safety in a multi
+threaded environment using Mutex and Arc.</li>
+  <li>Approach	2	-	Thread	Pool	Implementation:	Developed	another	multi-threaded	regular	expression	search	tool	in	Rust.	Used	clap	for
+ command-line	argument	parsing,	regex	for	pattern	matching,	and	implemented	parallel	processing	using	a	custom	thread	pool.	The	custom
+ thread	pool	employed	mpsc	for	task	scheduling	and	Mutex	and	Arc	for	thread	safety	and	data	consistency.	Conducted	performance	testing
+ on	a	Linux	system	using	the	time	command.	The	custom	thread	pool	approach	achieved	a	39.1%	performance	improvement	over	GNU
+ grep	when	executing	<code class="language-plaintext highlighter-rouge">grep [mM]icrodevice	..</code></li>
+</ul>
+
+<h4 id="5-analysis-of-an-efficient-classification-method-based-on-density-optimization">5. Analysis of an efficient classification method based on density optimization</h4>
+<ul>
+  <li>Investigated and optimized the classifier using a DPC-based data preprocessing method to address the problem of multi-classification unbalanced data.</li>
+  <li>Analyzed three mainstream classifiers: random forest, decision tree, k-nearest neighbor, and support vector machine, with a focus on using the weighted KNN algorithm based on kernel function for prediction training.</li>
+  <li>Utilized the DPC algorithm to select the cluster center and determine the optimal clipping threshold through experimentation, resulting in an optimized training set for the classifier.</li>
+  <li>Employed a cross test to test the accuracy of the model, and experimental results showed a well improvement in classifier accuracy using the optimization algorithm in most of cases.</li>
+</ul>
+
+
+                
+                    <hr />
+                    <p style="text-align: center; margin-bottom: 10px">
+                    <a href="https://github.com/wang-zhuoran" style="color: black"><small>Page design by Zhuoran Wang</small></a>
+                    </p>
+                
+            </div>
+    </div>
+    
+    <script src="/assets/js/theme-toggle.js"></script>
+</body>
+<footer>
+</footer>
