@@ -3,7 +3,7 @@ email: "wang.zr0511@outlook.com"
 description: "This is my personal website."
 baseurl: "" # 不要修改，除非你在子目录下托管站点
 url: "https://wang-zhuoran.github.io/" # 修改为你的实际网址
-theme: minima
+# theme: minima  # 注释掉主题配置以使用自定义布局
 
 markdown: kramdown
 highlighter: rouge

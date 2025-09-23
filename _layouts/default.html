@@ -23,7 +23,7 @@
     <meta name="description" content="{{ desc }}">
     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="/feed.xml" />
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     {% if site.favicon %}
         <link rel="icon" type="image/ico" href="{{ site.favicon_location }}">
@@ -107,7 +107,7 @@
           ga('send', 'pageview');
         </script>
     {% endif %}
-    <script src="/assets/js/theme-toggle.js"></script>
+    <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
 </body>
 <footer>
 </footer>
