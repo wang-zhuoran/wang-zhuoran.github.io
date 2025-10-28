@@ -26,29 +26,40 @@ Central to my approach is a firm belief in the power of hardware-software-algori
 <span style="color: red;">**I am actively seeking PhD/Mphil/RA position starting in 2025/2026 Fall.**</span>
 
 ## Education
-- [2023.09 - 2025.11] MSc in Computer Engineering, Delft University of Technology, The Netherlands
+- **MSc in Computer Engineering** · Delft University of Technology, The Netherlands  
+*Sep 2023 – Nov 2025*
 
-- [2019.09 - 2023.07] BSc in Robotics and Intelligent Devices, National University of Ireland, Maynooth, Ireland
+- **BSc in Robotics and Intelligent Devices** · National University of Ireland, Maynooth, Ireland  
+*Sep 2019 – Jul 2023*  
   - First-class Honors with a GPA of 3.8/4.0
 
-- [2019.09 - 2023.07] BEng in Automation, Fuzhou University, China
+- **BEng in Automation** · Fuzhou University, China  
+*Sep 2019 – Jul 2023*  
   - First-class Honors with a GPA of 3.8/4.0
 
 
 ## Experience
 
-- [2025.02 - Present] Master Thesis Student, Delft University of Technology, The Netherlands
+- **Research Intern** · Research Institute of Artificial Intelligence (TeleAI), China Telecom  
+*Jun 2025 – Present*  
+  - Working on optimizing verl and vLLM frameworks for multi-modal video understanding RLHF training pipelines.
+
+- **Master Thesis Student** · Delft University of Technology, The Netherlands  
+*Feb 2025 – Present*  
   - Embedded Systems group, Department of Software Technology
   - Working on the topic of Efficient Large Language Model Inference
 
-- [2024.10 - 2025.03] Research Intern, Delft University of Technology, The Netherlands
+- **Research Intern** · Delft University of Technology, The Netherlands  
+*Oct 2024 – Mar 2025* 
   - Distributed System group, Department of Software Technology
   - Working on Decentralized Machine Learning Systems
   
-- [2022.03 - 2022.06] Software Engineer Intern, Shandong University Tianyuan Digital Industry Research Institute, China
+- **Software Engineer Intern** · Shandong University Tianyuan Digital Industry Research Institute, China  
+*Mar 2022 – Jun 2022*  
   - Building website using SpringBoot, Vue and MySQL
 
-- [2020.06 - 2020.09] Research Intern, Fuzhou University, China
+- **Research Intern** · Fuzhou University, China  
+*Jun 2020 – Sep 2020*  
   - An introductory research on the topics of Computer Vision and Object Detection
 
 ## Awards and Honors
@@ -68,5 +79,6 @@ Jian Chen\*, **Zhuoran Wang**\*, Jiayu Qin, Ming Li, Meng Wang, Changyou Chen, Y
 
 
 ## Academic Service
-- Student Volunteer, ASPLOS / EuroSys 2025, Rotterdam, The Netherlands
+- **Student Volunteer**, ASPLOS / EuroSys 2025, Rotterdam, The Netherlands.
+- **Reviewer**, AAAI Undergraduate Consortium (AAAI UC), 2026.
 
