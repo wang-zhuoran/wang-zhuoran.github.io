@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhuoran Wang | 王卓然</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   CSS VARIABLES & RESET
+   ═══════════════════════════════════════════ */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f0f1a;
+  --bg-card: rgba(15, 15, 30, 0.7);
+  --text-primary: #c8c8d4;
+  --text-secondary: #6a6a8a;
+  --text-bright: #e8e8f0;
+  --accent-cyan: #00e5ff;
+  --accent-sakura: #ff6b9d;
+  --accent-purple: #a855f7;
+  --accent-amber: #f59e0b;
+  --border-dim: rgba(100, 100, 160, 0.15);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --scanline-opacity: 0.03;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-body: 'Zen Kaku Gothic New', 'Helvetica Neue', sans-serif;
+  --font-serif: 'Noto Serif JP', serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-cyan) var(--bg-primary);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   CRT SCANLINE OVERLAY
+   ═══════════════════════════════════════════ */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 0, 0, var(--scanline-opacity)) 1px,
+    rgba(0, 0, 0, var(--scanline-opacity)) 2px
+  );
+}
+
+/* ═══════════════════════════════════════════
+   SAKURA PARTICLES CANVAS
+   ═══════════════════════════════════════════ */
+#sakura-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(10, 10, 15, 0.85);
+  border-bottom: 1px solid var(--border-dim);
+}
+
+nav .logo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+nav .logo .blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav .nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s, text-shadow 0.3s;
+  position: relative;
+}
+
+nav .nav-links a:hover {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+}
+
+nav .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-cyan);
+  transition: width 0.3s;
+}
+
+nav .nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(255, 107, 157, 0.05) 0%, transparent 50%);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-greeting {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.2s;
+}
+
+.hero-name {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.4s;
+}
+
+.hero-name::before {
+  content: 'Zhuoran Wang';
+  position: absolute;
+  top: 0;
+  left: 2px;
+  color: var(--accent-sakura);
+  opacity: 0.6;
+  clip-path: inset(0 0 65% 0);
+  animation: glitch-top 3s infinite linear alternate-reverse;
+}
+
+.hero-name::after {
+  content: 'Zhuoran Wang';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  color: var(--accent-cyan);
+  opacity: 0.6;
+  clip-path: inset(65% 0 0 0);
+  animation: glitch-bottom 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-top {
+  0%, 90%, 100% { clip-path: inset(0 0 65% 0); transform: translate(0); }
+  92% { clip-path: inset(10% 0 55% 0); transform: translate(-3px, 1px); }
+  94% { clip-path: inset(30% 0 40% 0); transform: translate(2px, -1px); }
+  96% { clip-path: inset(5% 0 70% 0); transform: translate(1px, 2px); }
+}
+
+@keyframes glitch-bottom {
+  0%, 88%, 100% { clip-path: inset(65% 0 0 0); transform: translate(0); }
+  90% { clip-path: inset(50% 0 10% 0); transform: translate(2px, 1px); }
+  93% { clip-path: inset(70% 0 5% 0); transform: translate(-1px, -2px); }
+  95% { clip-path: inset(55% 0 15% 0); transform: translate(3px, 0); }
+}
+
+.hero-name-jp {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  letter-spacing: 8px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.6s;
+}
+
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 2;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.8s;
+}
+
+.hero-tagline .highlight {
+  color: var(--accent-sakura);
+}
+
+.hero-tagline .highlight-cyan {
+  color: var(--accent-cyan);
+}
+
+.hero-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 1s;
+}
+
+.hero-links a {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--border-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.hero-links a:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════
+   SECTION COMMON STYLES
+   ═══════════════════════════════════════════ */
+section {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.section-header {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-body);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 3rem;
+}
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-sakura));
+  margin-bottom: 3rem;
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT SECTION
+   ═══════════════════════════════════════════ */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-photo-wrapper {
+  position: relative;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--border-dim);
+  filter: grayscale(30%) contrast(1.1);
+  transition: filter 0.5s;
+}
+
+.about-photo:hover {
+  filter: grayscale(0%) contrast(1);
+}
+
+.about-photo-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--accent-sakura);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.about-text p {
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.about-text .emphasis {
+  color: var(--accent-sakura);
+  font-style: italic;
+}
+
+.about-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.about-interests span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border-dim);
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.about-interests span:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+}
+
+/* ═══════════════════════════════════════════
+   BLOG SECTION
+   ═══════════════════════════════════════════ */
+.blog-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--border-dim);
+}
+
+.blog-post {
+  background: var(--bg-primary);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.blog-post:hover {
+  background: var(--bg-secondary);
+}
+
+.blog-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.blog-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-bright);
+  transition: color 0.3s;
+}
+
+.blog-post:hover .blog-title {
+  color: var(--accent-cyan);
+}
+
+.blog-excerpt {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+.blog-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--accent-sakura);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.blog-more {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.blog-more:hover {
+  color: var(--accent-cyan);
+}
+
+/* ═══════════════════════════════════════════
+   PROJECTS SECTION
+   ═══════════════════════════════════════════ */
+.projects-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.project-card {
+  border: 1px solid var(--border-dim);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.05);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--accent-sakura);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.project-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 0.8rem;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+.project-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-stack span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  color: var(--accent-cyan);
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════════
+   ACADEMIC SECTION
+   ═══════════════════════════════════════════ */
+.academic-block {
+  margin-bottom: 3rem;
+}
+
+.academic-block h3 {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-purple);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.academic-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(100, 100, 160, 0.07);
+}
+
+.academic-item .role {
+  font-weight: 500;
+  color: var(--text-bright);
+  font-size: 0.95rem;
+}
+
+.academic-item .org {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.academic-item .period {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.academic-item .detail {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+.publication {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(100, 100, 160, 0.07);
+}
+
+.publication .pub-title {
+  font-style: italic;
+  color: var(--text-bright);
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.publication .pub-authors {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.publication .pub-venue {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-amber);
+  margin-top: 0.3rem;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border-dim);
+}
+
+.footer-quote {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.footer-quote-src {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent-sakura);
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--accent-cyan);
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(100, 100, 160, 0.4);
+  letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  nav .nav-links {
+    gap: 1rem;
+  }
+
+  nav .nav-links a {
+    font-size: 0.65rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo-wrapper {
+    max-width: 200px;
+  }
+
+  .blog-post {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .blog-tag {
+    display: none;
+  }
+
+  section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   AMBIENT GLOW ELEMENTS
+   ═══════════════════════════════════════════ */
+.glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(168, 85, 247, 0.06);
+  top: 20%;
+  left: -10%;
+  animation: drift 20s ease-in-out infinite;
+}
+
+.glow-orb-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 229, 255, 0.04);
+  top: 60%;
+  right: -5%;
+  animation: drift 25s ease-in-out infinite reverse;
+}
+
+.glow-orb-3 {
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 107, 157, 0.04);
+  bottom: 10%;
+  left: 30%;
+  animation: drift 18s ease-in-out infinite 5s;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(30px, -20px); }
+  50% { transform: translate(-20px, 30px); }
+  75% { transform: translate(15px, 15px); }
+}
+
+/* ═══════════════════════════════════════════
+   SELECTION STYLE
+   ═══════════════════════════════════════════ */
+::selection {
+  background: var(--accent-sakura);
+  color: var(--bg-primary);
+}
+</style>
+</head>
+<body>
+
+<!-- Ambient glow orbs -->
+<div class="glow-orb glow-orb-1"></div>
+<div class="glow-orb glow-orb-2"></div>
+<div class="glow-orb glow-orb-3"></div>
+
+<!-- Sakura particles -->
+<canvas id="sakura-canvas"></canvas>
+
+<!-- ═══════ NAVIGATION ═══════ -->
+<nav>
+  <div class="logo">ZW<span class="blink">_</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#academic">Academic</a></li>
+    <li><a href="resume.pdf">Resume</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-greeting">// connected to the wired</div>
+    <h1 class="hero-name">Zhuoran Wang</h1>
+    <div class="hero-name-jp">王 卓 然</div>
+    <p class="hero-tagline">
+      Building at the intersection of <span class="highlight">generative AI</span> and <span class="highlight-cyan">digital entertainment</span>.<br>
+      Interested in AI VTubers, diffusion models, and the culture of the Wired.
+    </p>
+    <div class="hero-links">
+      <a href="https://github.com/wang-zhuoran">GitHub</a>
+      <a href="https://twitter.com/">Twitter</a>
+      <a href="https://www.bilibili.com/">Bilibili</a>
+      <a href="mailto:your@email.com">Contact</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">↓ scroll</div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about">
+  <div class="section-header">// 01. about</div>
+  <h2 class="section-title">Who Am I</h2>
+  <div class="section-divider"></div>
+  <div class="about-content">
+    <div class="about-photo-wrapper">
+      <img src="assets/images/profile.jpg?v=20260329" alt="Zhuoran Wang" class="about-photo">
+    </div>
+    <div class="about-text">
+      <p>
+        I'm a builder and researcher who believes the most interesting things happen at the edges —
+        where mainstream attention hasn't reached, where there's room for genuine creation.
+      </p>
+      <p>
+        My current obsession is bringing AI characters to life. I'm building an <span class="emphasis">AI VTuber</span>
+        from scratch, exploring how language models, voice synthesis, and real-time animation can converge
+        to create something that feels alive and has a soul.
+      </p>
+      <p>
+        Academically, I work on generative models and efficient model inference & training. Outside of research, I spend most of my time thinking about cyberculture, anime, and the strange places where technology and subculture collide.
+      <div class="about-interests">
+        <span>AIGC</span>
+        <span>VTuber</span>
+        <span>Diffusion Models</span>
+        <span>LLM Inference</span>
+        <span>Voice Synthesis</span>
+        <span>Anime</span>
+        <span>Cyberculture</span>
+        <span>Open Source</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ BLOG ═══════ -->
+<section id="blog">
+  <div class="section-header">// 02. blog</div>
+  <h2 class="section-title">Transmissions</h2>
+  <div class="section-divider"></div>
+  <div class="blog-grid">
+    <div class="blog-post" onclick="window.location.href='/2026/03/29/innovation-happens-at-the-edges.html'">
+      <div class="blog-date">2026.03</div>
+      <div>
+        <div class="blog-title">Innovation Happens at the Edges</div>
+        <div class="blog-excerpt">Why the most important breakthroughs in computing always came from the margins — and what that means for AI.</div>
+      </div>
+      <div class="blog-tag">Cyberculture</div>
+    </div>
+    <div class="blog-post" onclick="window.location.href='/2026/03/28/the-death-and-rebirth-of-internet-spirit.html'">
+      <div class="blog-date">2026.03</div>
+      <div>
+        <div class="blog-title">The Death and Rebirth of Internet Spirit</div>
+        <div class="blog-excerpt">1990s internet culture, the commercialization of the web, and where genuine creation lives today.</div>
+      </div>
+      <div class="blog-tag">Essay</div>
+    </div>
+    <div class="blog-post" onclick="window.location.href='/2026/02/20/open-source-ai-vtuber-landscape-a-technical-survey.html'">
+      <div class="blog-date">2026.02</div>
+      <div>
+        <div class="blog-title">Open Source AI VTuber Landscape: A Technical Survey</div>
+        <div class="blog-excerpt">Comparing Project Airi, Neuro-sama's architecture, and the emerging ecosystem of AI-driven virtual characters.</div>
+      </div>
+      <div class="blog-tag">Technical</div>
+    </div>
+  </div>
+  <a href="/blog.html" class="blog-more">→ All posts</a>
+</section>
+
+<!-- ═══════ PROJECTS ═══════ -->
+<section id="projects">
+  <div class="section-header">// 03. projects</div>
+  <h2 class="section-title">Building</h2>
+  <div class="section-divider"></div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-label">● In Progress</div>
+      <div class="project-name">AI VTuber</div>
+      <div class="project-desc">
+        An end-to-end AI-driven virtual character capable of real-time voice dialogue, emotional expression,
+        and Live2D animation. Built with LLM backbone, neural TTS, and real-time lip sync.
+        Inspired by Neuro-sama and the vision of AI characters with genuine personality.
+      </div>
+      <div class="project-stack">
+        <span>DeepSeek</span>
+        <span>Kokoro TTS</span>
+        <span>faster-whisper</span>
+        <span>Live2D</span>
+        <span>Python</span>
+      </div>
+    </div>
+
+    <!-- <div class="project-card">
+      <div class="project-label">● Research</div>
+      <div class="project-name">Block Diffusion Language Models</div>
+      <div class="project-desc">
+        Exploring token-level block boundary prediction for discrete diffusion language models,
+        using RST-based EDU segmentation to guide generation structure.
+      </div>
+      <div class="project-stack">
+        <span>PyTorch</span>
+        <span>Diffusion Models</span>
+        <span>RST Parsing</span>
+        <span>NLP</span>
+      </div>
+    </div> -->
+
+    <div class="project-card">
+      <div class="project-label">● Open Source</div>
+      <div class="project-name">SGLang Contributor</div>
+      <div class="project-desc">
+        Contributing to SGLang, a structured generation language for LLM inference optimization.
+        Documentation improvements and community engagement.
+      </div>
+      <div class="project-stack">
+        <span>SGLang</span>
+        <span>LLM Inference</span>
+        <span>Open Source</span>
+      </div>
+    </div>
+
+    <!-- <div class="project-card">
+      <div class="project-label">● Research</div>
+      <div class="project-name">Dynamic KV-Cache Compression</div>
+      <div class="project-desc">
+        Fine-grained evaluation of key and value ranks in large language models for efficient inference.
+        Published at NeurIPS 2025 Workshop.
+      </div>
+      <div class="project-stack">
+        <span>LLM</span>
+        <span>KV-Cache</span>
+        <span>Efficiency</span>
+        <span>NeurIPS</span>
+      </div>
+    </div> -->
+
+  </div>
+</section>
+
+<!-- ═══════ ACADEMIC ═══════ -->
+<section id="academic">
+  <div class="section-header">// 04. academic</div>
+  <h2 class="section-title">Credentials</h2>
+  <div class="section-divider"></div>
+
+  <div class="academic-block">
+    <h3>Publications</h3>
+    <div class="publication">
+      <div class="pub-title">Towards Dynamic KV-Cache Compression: Fine-Grained Evaluation of Key and Value Ranks in LLMs</div>
+      <div class="pub-authors">Jian Chen*, <strong>Zhuoran Wang</strong>*, Jiayu Qin, Ming Li, Meng Wang, Changyou Chen, Yin Chen, Qizhen Weng, Yirui Liu</div>
+      <div class="pub-venue">NeurIPS Workshop, 2025 (* equal contribution)</div>
+    </div>
+  </div>
+
+  <div class="academic-block">
+    <h3>Education</h3>
+    <div class="academic-item">
+      <div class="role">MSc in Computer Engineering</div>
+      <div class="org">Delft University of Technology, The Netherlands</div>
+      <div class="period">Sep 2023 – Nov 2025</div>
+    </div>
+    <div class="academic-item">
+      <div class="role">BSc in Robotics and Intelligent Devices</div>
+      <div class="org">National University of Ireland, Maynooth & Fuzhou University (Dual Degree)</div>
+      <div class="period">Sep 2019 – Jul 2023</div>
+      <div class="detail">First-class Honors, GPA 3.8/4.0</div>
+    </div>
+  </div>
+
+  <div class="academic-block">
+    <h3>Experience</h3>
+    <div class="academic-item">
+      <div class="role">Research Intern — TeleAI, China Telecom</div>
+      <div class="detail">Optimizing verl and vLLM for multi-modal video RLHF training</div>
+      <div class="period">Jun 2025 – Present</div>
+    </div>
+    <div class="academic-item">
+      <div class="role">Master Thesis — TU Delft, Embedded Systems</div>
+      <div class="detail">Efficient Large Language Model Inference</div>
+      <div class="period">Feb 2025 – Present</div>
+    </div>
+  </div>
+
+  <div class="academic-block">
+    <h3>Service</h3>
+    <div class="academic-item">
+      <div class="role">Reviewer — AAAI Undergraduate Consortium, 2026</div>
+    </div>
+    <div class="academic-item">
+      <div class="role">Student Volunteer — ASPLOS / EuroSys 2025, Rotterdam</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-quote">No matter where you go, everyone's connected.</div>
+  <div class="footer-quote-src">— Serial Experiments Lain</div>
+  <div class="footer-links">
+    <a href="https://github.com/wang-zhuoran">GitHub</a>
+    <a href="#">Twitter</a>
+    <a href="#">Bilibili</a>
+    <a href="mailto:your@email.com">Email</a>
+  </div>
+  <div class="footer-copy">© 2026 Zhuoran Wang — Built by hand, not by template.</div>
+</footer>
+
+<!-- ═══════ SAKURA PARTICLE SCRIPT ═══════ -->
+<script>
+const canvas = document.getElementById('sakura-canvas');
+const ctx = canvas.getContext('2d');
+let w, h;
+const petals = [];
+const PETAL_COUNT = 35;
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Petal {
+  constructor() {
+    this.reset();
+    this.y = Math.random() * h;
+  }
+  reset() {
+    this.x = Math.random() * w;
+    this.y = -10;
+    this.size = Math.random() * 4 + 2;
+    this.speedY = Math.random() * 0.5 + 0.2;
+    this.speedX = Math.random() * 0.4 - 0.2;
+    this.rotation = Math.random() * Math.PI * 2;
+    this.rotSpeed = (Math.random() - 0.5) * 0.02;
+    this.opacity = Math.random() * 0.15 + 0.05;
+    this.drift = Math.random() * 0.5 + 0.5;
+    this.driftOffset = Math.random() * Math.PI * 2;
+  }
+  update() {
+    this.y += this.speedY;
+    this.x += this.speedX + Math.sin(this.y * 0.005 + this.driftOffset) * this.drift * 0.3;
+    this.rotation += this.rotSpeed;
+    if (this.y > h + 10) this.reset();
+  }
+  draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.rotation);
+    ctx.globalAlpha = this.opacity;
+    ctx.fillStyle = '#ff6b9d';
+    ctx.beginPath();
+    // petal shape
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(
+      this.size * 0.5, -this.size,
+      this.size * 1.5, -this.size,
+      this.size, 0
+    );
+    ctx.bezierCurveTo(
+      this.size * 1.5, this.size * 0.5,
+      this.size * 0.5, this.size * 0.5,
+      0, 0
+    );
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+for (let i = 0; i < PETAL_COUNT; i++) {
+  petals.push(new Petal());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+  petals.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* Smooth scroll for nav links */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+<!-- Live2D Widget (optional: uncomment to enable) -->
+<!--
+<script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+-->
+
+</body>
+</html>
