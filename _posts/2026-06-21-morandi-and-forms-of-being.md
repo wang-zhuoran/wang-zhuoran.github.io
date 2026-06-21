@@ -25,7 +25,7 @@ tags: [art, philosophy, exhibition]
 
 <figure>
   <img src="{{ '/assets/images/morandi-exhibition/morandi-early-portrait.jpg' | relative_url }}" alt="浦东美术馆莫兰迪展早期肖像展区">
-  <figcaption>浦东美术馆“乔治·莫兰迪：独白”展览现场，早期肖像展区，作者摄，2026年6月。</figcaption>
+  <figcaption>浦东美术馆“乔治·莫兰迪：独白”展览现场，展现莫兰迪家中窗外的景色的画作，作者摄，2026年6月。</figcaption>
 </figure>
 
 ---
