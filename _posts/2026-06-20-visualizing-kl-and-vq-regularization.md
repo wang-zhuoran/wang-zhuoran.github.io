@@ -30,13 +30,12 @@ x -> z -> x_hat
 
 输入是 `28x28` 的 MNIST 手写数字图。encoder 把图像压到二维 latent `z`，decoder 再从 `z` 还原图像。
 
-我故意把设置做得很朴素：
+我们的设置：
 
 - latent 维度固定为 `2`，这样可以直接画散点图；
 - encoder / decoder 都用小 MLP，而不是 CNN；
 - 训练集取约 `10000` 张，验证和可视化取约 `2000` 张；
 - 每个 epoch 都画一次同一批样本的 latent。
-
 这个实验不是生成质量 benchmark，而是一个几何直觉实验。模型越简单，越容易看出正则项本身在干什么。
 
 ## AE：没有 latent 正则
@@ -196,17 +195,7 @@ vq_commitment_beta = 0.25
 vq_decay = 0.95
 ```
 
-一条命令跑完整个可视化：
-
-```bash
-PYTHONPATH=src python src/train.py --model all
-```
-
-最终输出就是这篇文章里用到的几个 GIF。
-
 ## Takeaway
-
-我现在会这样记：
 
 - AE 学的是“够用的压缩表示”；
 - VAE 用 `KL` 把 latent 变成连续、规整、接近高斯的空间；
